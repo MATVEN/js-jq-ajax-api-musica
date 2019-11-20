@@ -1,3 +1,10 @@
+/*  DESCRIZIONE:
+        Attraverso una chiamata ajax all’Api di boolean avremo a disposizione una decina di dischi musicali.
+        Servendoci di handlebars stampiamo tutto a schermo. In questo momento non è importante la parte grafica.
+        Chiamata: https://flynn.boolean.careers/exercises/api/array/music
+        Layout: https://bitbucket.org/booleancareers/ex-dischi-musicali-layout
+*/
+
 $(document).ready(function() {
 
 	//Code
@@ -17,13 +24,14 @@ $(document).ready(function() {
           var sourceTransfert = Handlebars.compile(source);
 
           var objectsContent = {
-            poster: data.response[i].cover,
-            author: data.response[i].author,
-            year: data.response[i].year,
-            genre: data.response[i].genre
+            poster: data.response[i].poster,
+            title: data.response[i].title,
+            name: data.response[i].author,
+            genre: data.response[i].genre,
+            year: data.response[i].year
           }
 
-        var stamp =  sourceTransfert(objectsContent);
+          var stamp =  sourceTransfert(objectsContent);
 
           $(".cds-container").append(stamp);
 
